@@ -16,16 +16,20 @@ void loop() {
   // 시리얼 모니터에 출력
   Serial.print("Sensor value: ");
   Serial.println(sensorValue);
-
-  if (sensorValue>=600){
+  if (sensorValue>=930){
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+  }
+  else if (sensorValue>=800){
     digitalWrite(2, HIGH);  
-  }else if (sensorValue >= 300){ 
+  }else if (sensorValue >= 500){ 
     digitalWrite(3, HIGH);
   }else{
     digitalWrite(4, HIGH);
   }
-  delay(1000);
-  digitalWrite(4, LOW);
+  delay(20);
   digitalWrite(2, LOW);  
   digitalWrite(3, LOW);
+  digitalWrite(4, LOW);
 }
